@@ -40,7 +40,7 @@ import java.util.Random;
 class get extends Thread{
 @Override 
    public void run(){
-    for(int i=0;i<=10;i++){
+    
 
     try {
         TestGet.testSongsGet();
@@ -54,13 +54,13 @@ class get extends Thread{
 
 
 }
-}
+
 
 class post extends Thread{
     @Override 
        public void run(){
     
-       for(int i=0;i<=50;i++){
+       
             try {
                 TestPost.testSongsPost();
             } catch (Exception e) {
@@ -72,7 +72,7 @@ class post extends Thread{
        }
     
     
-    }
+    
 
 
 
@@ -104,7 +104,7 @@ class TestGet {
 class TestPost {
 
    
-
+/// do get and do post for random gen data
     public static void testSongsPost() throws Exception {
 		
 		String url = "http://localhost:9090/coen6317/songs";
@@ -141,12 +141,15 @@ public class AudioClientTest{
     public static void main(String[] args) throws Exception{
 
 
-   
+   // use for loop here instead
+   for(int i=0;i<=60;i++){
      get gettest = new get();
      gettest.start();
-
+   
      post posttest = new post();
      posttest.start();
+
+   }
 
     
     
