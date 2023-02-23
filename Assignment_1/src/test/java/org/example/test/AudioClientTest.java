@@ -80,7 +80,7 @@ class TestGet {
 
 	public static void testSongsGet() throws Exception {
 
-		String url = "http://localhost:9090/coen6317/songs";
+		String url = "http://localhost:8080/coen6317/songs";
 		HttpClient client = new HttpClient();
         client.start();
 
@@ -107,7 +107,7 @@ class TestPost {
 /// do get and do post for random gen data
     public static void testSongsPost() throws Exception {
 		
-		String url = "http://localhost:9090/coen6317/songs";
+		String url = "http://localhost:8080/coen6317/songs";
 		HttpClient client = new HttpClient();
         client.start();
         
