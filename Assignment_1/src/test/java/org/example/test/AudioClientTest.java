@@ -40,11 +40,13 @@ import java.util.Random;
 
 
 
+
+
 class get extends Thread{
 @Override 
    public void run(){
     
-
+for(int i=0;i<=2;i++){                             ///change the ratio of gets here if 2:1, put 2, 5:1 put 5
     try {
         TestGet.testSongsGet();
     } catch (Exception e) {
@@ -54,7 +56,7 @@ class get extends Thread{
 
 
    }
-
+   }
 
 }
 
@@ -152,14 +154,13 @@ public class AudioClientTest{
         
         
    // use for loop here instead
-   for(int i=0;i<=60;i++){
+   for(int i=0;i<=100;i++){                                     ///// put total number of clients here
 
     
      get gettest1 = new get();
      gettest1.start();
 
-     get gettest2 = new get();
-     gettest2.start();
+     
    
      post posttest = new post();
      posttest.start();
@@ -172,7 +173,7 @@ public class AudioClientTest{
         
 long dt = end - begin;
 
-System.out.println(dt+ "Milliseconds");
+System.out.println(dt);
 
   
 
