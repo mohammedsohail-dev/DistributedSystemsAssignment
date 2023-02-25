@@ -172,7 +172,7 @@ public class AudioClientTest{
         
 long dt = end - begin;
 
-System.out.println(dt);
+System.out.println(dt+ "Milliseconds");
 
   
 
