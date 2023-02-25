@@ -5,6 +5,9 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,7 +43,7 @@ import java.util.Random;
 class get extends Thread{
 @Override 
    public void run(){
-    for(int i=0;i<=10;i++){
+    
 
     try {
         TestGet.testSongsGet();
@@ -54,13 +57,13 @@ class get extends Thread{
 
 
 }
-}
+
 
 class post extends Thread{
     @Override 
        public void run(){
     
-       for(int i=0;i<=50;i++){
+       
             try {
                 TestPost.testSongsPost();
             } catch (Exception e) {
@@ -72,7 +75,7 @@ class post extends Thread{
        }
     
     
-    }
+    
 
 
 
@@ -80,7 +83,7 @@ class TestGet {
 
 	public static void testSongsGet() throws Exception {
 
-		String url = "http://localhost:9090/coen6317/songs";
+		String url = "http://204.216.109.29:8080/coen6317/songs";
 		HttpClient client = new HttpClient();
         client.start();
 
@@ -95,6 +98,7 @@ class TestGet {
 		
 		 System.out.println(responseContent);
 		client.stop();
+        
     
 		
 	}
@@ -104,10 +108,10 @@ class TestGet {
 class TestPost {
 
    
-
+/// do get and do post for random gen data
     public static void testSongsPost() throws Exception {
 		
-		String url = "http://localhost:9090/coen6317/songs";
+		String url = "http://204.216.109.29:8080/coen6317/songs";
 		HttpClient client = new HttpClient();
         client.start();
         
@@ -137,16 +141,42 @@ class TestPost {
 
 public class AudioClientTest{
 
+
+    
+
     @Test
     public static void main(String[] args) throws Exception{
-
+        long begin = System.currentTimeMillis();  
 
    
-     get gettest = new get();
-     gettest.start();
+        
+        
+   // use for loop here instead
+   for(int i=0;i<=60;i++){
 
+    
+     get gettest1 = new get();
+     gettest1.start();
+
+     get gettest2 = new get();
+     gettest2.start();
+   
      post posttest = new post();
      posttest.start();
+
+   }
+   
+
+
+   long end = System.currentTimeMillis();
+        
+long dt = end - begin;
+
+System.out.println(dt);
+
+  
+
+   
 
     
     
@@ -161,5 +191,6 @@ public class AudioClientTest{
 
 
 
-}
 
+
+}
